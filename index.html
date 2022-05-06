@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <script src="index.pack.js"></script>
+    </head>
+    <body>
+        <div style="text-align: center; width: 300px; margin: 0 auto;">
+            <p id="count" style="font-size: 50px;">0</p>
+        </div>
+
+        <div style="text-align: center; width: 300px; margin: 0 auto;">
+            <button class="btn" id="dugme" onclick="increase()">Increase Counter</button>
+            <button class="btn" id="dugme2" onclick="decrease()">Decrease Counter</button>
+            <button class="btn" id="dugme3" onclick="reset()">Reset Counter</button>
+            <br> <br>
+        </div>
+
+        <div style="text-align: center; width: 300px; margin: 0 auto;">
+            <input id="step" placeholder="Step" type="number"></input>
+        </div>
+        
+        <script>
+                function increase() {
+                    var broj = document.getElementById("count").innerHTML;
+                    broj = parseInt(broj);
+                    
+                    var step = document.getElementById("step").value;
+                    step = parseInt(step);
+                    
+                    if(document.getElementById("step").value == "") {
+                        step = 1;
+                    }
+                    
+                    document.getElementById("count").innerHTML = broj + step;
+                }
+            
+                function decrease() {
+                    var broj = document.getElementById("count").innerHTML;
+                    broj = parseInt(broj);
+                    
+                    var step = document.getElementById("step").value;
+                    step = parseInt(step);
+                    
+                    if(document.getElementById("step").value == "") {
+                        step = 1;
+                    }
+                    
+                    document.getElementById("count").innerHTML = broj - step;
+                }
+
+                function reset() {
+                    document.getElementById("count").innerHTML = 0;
+                }
+
+                document.onkeypress = function(eventKeyName) {
+                    eventKeyName = eventKeyName || window.event;
+                    if(eventKeyName.keyCode == 39) {
+                        increase();
+                    } else if(eventKeyName.keyCode == 37) {
+                        decrease();
+                    }
+                }
+
+        </script>
+
+        <style type="text/css">
+            .btn {
+                font-size: 15px;
+                font-family: Verdana;
+                padding: 5px;
+            }
+
+            #count {
+                font-family: Verdana;
+            }
+        </style>
+    </body>
+</html>
